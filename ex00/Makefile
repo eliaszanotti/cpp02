@@ -6,11 +6,12 @@
 #    By: elias <zanotti.elias@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/09 13:08:09 by elias             #+#    #+#              #
-#    Updated: 2023/05/14 18:58:55 by ezanotti         ###   ########.fr        #
+#    Updated: 2023/05/14 19:31:37 by ezanotti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 S_SRC		= main.cpp		\
+			Fixed.class.cpp
 
 S_TMP		= ${addprefix ${D_SRC}, ${S_SRC}}
 O_SRC		= $(patsubst %.c, ${D_OBJS}%.o, $(S_TMP))

@@ -6,7 +6,7 @@
 /*   By: ezanotti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 19:00:31 by ezanotti          #+#    #+#             */
-/*   Updated: 2023/05/14 19:21:49 by ezanotti         ###   ########.fr       */
+/*   Updated: 2023/05/14 19:29:42 by ezanotti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ class	Fixed
 	public:
 		Fixed();
 		Fixed(const Fixed &src);
-		Fixed &operator=(const Fixed &src)
+		Fixed &operator=(const Fixed &src);
 		~Fixed();
 		
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
-}
+};
 
 #endif
