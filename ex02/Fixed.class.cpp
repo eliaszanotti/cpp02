@@ -6,13 +6,13 @@
 /*   By: ezanotti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 19:22:47 by ezanotti          #+#    #+#             */
-/*   Updated: 2023/05/14 20:29:58 by ezanotti         ###   ########.fr       */
+/*   Updated: 2023/05/15 11:55:43 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.class.hpp"
-#include <cmath>
 
+// Constructors
 Fixed::Fixed()
 {
 	std::cout << "\e[32m[Default constructor called]\e[0m" << std::endl;
@@ -37,6 +37,12 @@ Fixed::Fixed(const Fixed &src)
 	this->setRawBits(src.getRawBits());
 }
 
+Fixed::~Fixed()
+{
+	std::cout << "\e[31m[Destructor called]\e[0m" << std::endl;
+}
+
+// Comparison operators
 Fixed&	Fixed::operator=(const Fixed &src)
 {
 	std::cout << "\e[32m[Copy assignment operator called]\e[0m" << std::endl;
@@ -44,11 +50,97 @@ Fixed&	Fixed::operator=(const Fixed &src)
 	return (*this);
 }
 
-Fixed::~Fixed()
+bool Fixed::operator>(const Fixed &src)
 {
-	std::cout << "\e[31m[Destructor called]\e[0m" << std::endl;
+	return (this->toFloat() > src.toFloat());
 }
 
+bool Fixed::operator<(const Fixed &src)
+{
+	return (this->toFloat() < src.toFloat());
+}
+
+bool Fixed::operator>=(const Fixed &src)
+{
+	return (this->toFloat() >= src.toFloat());
+}
+
+bool Fixed::operator<=(const Fixed &src)
+{
+	return (this->toFloat() <= src.toFloat());
+}
+
+bool Fixed::operator==(const Fixed &src)
+{
+	return (this->toFloat() == src.toFloat());
+}
+
+bool Fixed::operator!=(const Fixed &src)
+{
+	return (this->toFloat() != src.toFloat());
+}
+
+// Arithmetic operators
+Fixed Fixed::operator+(const Fixed &src)
+{
+	Fixed	newFixed(this->toFloat() + src.toFloat());
+	return (newFixed);
+}
+
+Fixed Fixed::operator-(const Fixed &src)
+{
+	Fixed	newFixed(this->toFloat() - src.toFloat());
+	return (newFixed);
+}
+
+Fixed Fixed::operator*(const Fixed &src)
+{
+	Fixed	newFixed(this->toFloat() * src.toFloat());
+	return (newFixed);
+}
+
+Fixed Fixed::operator/(const Fixed &src)
+{
+	Fixed	newFixed(this->toFloat() / src.toFloat());
+	return (newFixed);
+}
+
+// Increment operators
+Fixed& Fixed::operator++(void)
+{
+	this->setRawBits(this->getRawBits() + 1);
+	return (*this);
+}
+
+Fixed& Fixed::operator--(void)
+{
+	this->setRawBits(this->getRawBits() - 1);
+	return (*this);
+}
+
+Fixed Fixed::operator++(int value)
+{
+	Fixed	newFixed;
+
+	newFixed = *this;
+	if (!value)
+		value = 1;
+	newFixed.setRawBits(newFixed.getRawBits() + value);
+	return (newFixed);
+}
+
+Fixed Fixed::operator--(int value)
+{
+	Fixed	newFixed;
+
+	newFixed = *this;
+	if (!value)
+		value = 1;
+	newFixed.setRawBits(newFixed.getRawBits() - value);
+	return (newFixed);
+}
+
+// Methods
 int		Fixed::getRawBits(void) const
 {
 	return (this->_fixedValue);

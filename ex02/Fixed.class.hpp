@@ -6,7 +6,7 @@
 /*   By: ezanotti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 19:00:31 by ezanotti          #+#    #+#             */
-/*   Updated: 2023/05/14 20:23:32 by ezanotti         ###   ########.fr       */
+/*   Updated: 2023/05/15 11:43:54 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FIXED_CLASS_HPP
 
 #include <iostream>
+#include <cmath>
 
 class	Fixed
 {
@@ -22,17 +23,44 @@ class	Fixed
 		static const int	_fixedPosition = 8;
 
 	public:
+		// Constructors
 		Fixed();
 		Fixed(int intValue);
 		Fixed(float floatValue);
 		Fixed(const Fixed &src);
-		Fixed &operator=(const Fixed &src);
 		~Fixed();
 		
-		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
-		float	toFloat(void) const;
-		int		toInt(void) const;
+		// Comparison operators
+		Fixed &operator=(const Fixed &src);
+		bool operator>(const Fixed &src);
+		bool operator<(const Fixed &src);
+		bool operator>=(const Fixed &src);
+		bool operator<=(const Fixed &src);
+		bool operator==(const Fixed &src);
+		bool operator!=(const Fixed &src);
+		
+		// Arithmetic operators
+		Fixed operator+(const Fixed &src);
+		Fixed operator-(const Fixed &src);
+		Fixed operator*(const Fixed &src);
+		Fixed operator/(const Fixed &src);
+		
+		// Increment operators
+		Fixed &operator++(void);
+		Fixed &operator--(void);
+		Fixed operator++(int value);
+		Fixed operator--(int value);
+	
+		// Methods
+		int				getRawBits(void) const;
+		void			setRawBits(int const raw);
+		float			toFloat(void) const;
+		int				toInt(void) const;
+
+		static Fixed	&min(Fixed &f1, Fixed &f2);
+		static Fixed	&min(const Fixed &f1, const Fixed &f2);
+		static Fixed	&max(Fixed &f1, Fixed &f2);
+		static Fixed	&max(const Fixed &f1, const Fixed &f2);
 };
 
 std::ostream &operator<<(std::ostream &out, Fixed const &fixed);
