@@ -6,7 +6,7 @@
 /*   By: ezanotti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 19:22:47 by ezanotti          #+#    #+#             */
-/*   Updated: 2023/05/15 11:55:43 by elias            ###   ########.fr       */
+/*   Updated: 2023/05/15 13:25:04 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,21 @@ float	Fixed::toFloat(void) const
 int		Fixed::toInt(void) const
 {
 	return (this->getRawBits() >> _fixedPosition);
+}
+
+// Min and max
+const Fixed&	Fixed::min(const Fixed &f1, const Fixed &f2)
+{
+	if (f1.toFloat() < f2.toFloat())
+		return (f1);
+	return (f2);
+}
+
+const Fixed&	Fixed::max(const Fixed &f1, const Fixed &f2)
+{
+	if (f1.toFloat() > f2.toFloat())
+		return (f1);
+	return (f2);
 }
 
 std::ostream &operator<<(std::ostream &out, Fixed const &fixed)
