@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 19:22:47 by ezanotti          #+#    #+#             */
-/*   Updated: 2023/07/12 14:41:35 by elias            ###   ########.fr       */
+/*   Updated: 2023/07/12 15:57:06 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,16 +118,26 @@ Fixed& Fixed::operator--(void)
 	return (*this);
 }
 
-Fixed& Fixed::operator++(int value)
+Fixed	Fixed::operator++(int value)
 {
-	this->setRawBits(this->getRawBits() + value);
-	return (*this);
+	Fixed	newFixed;
+
+	newFixed = *this;
+	if (!value)
+		value = 1;
+	newFixed.setRawBits(newFixed.getRawBits() + value);
+	return (newFixed);
 }
 
-Fixed& Fixed::operator--(int value)
+Fixed	Fixed::operator--(int value)
 {
-	this->setRawBits(this->getRawBits() - value);
-	return (*this);
+	Fixed	newFixed;
+
+	newFixed = *this;
+	if (!value)
+		value = 1;
+	newFixed.setRawBits(newFixed.getRawBits() - value);
+	return (newFixed);
 }
 
 // Methods

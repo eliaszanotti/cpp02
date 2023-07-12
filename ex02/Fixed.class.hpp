@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 19:00:31 by ezanotti          #+#    #+#             */
-/*   Updated: 2023/07/12 14:38:56 by elias            ###   ########.fr       */
+/*   Updated: 2023/07/12 14:53:56 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ class	Fixed
 		// Increment operators
 		Fixed &operator++(void);
 		Fixed &operator--(void);
-		Fixed &operator++(int value);
-		Fixed &operator--(int value);
+		Fixed operator++(int value);
+		Fixed operator--(int value);
 	
 		// Methods
 		int				getRawBits(void) const;
