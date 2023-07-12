@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.class.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ezanotti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 19:22:47 by ezanotti          #+#    #+#             */
-/*   Updated: 2023/05/14 19:37:43 by ezanotti         ###   ########.fr       */
+/*   Updated: 2023/07/12 13:13:03 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Fixed::Fixed()
 Fixed::Fixed(const Fixed &src)
 {
 	std::cout << "\e[32m[Copy constructor called]\e[0m" << std::endl;
-	this->setRawBits(src.getRawBits());
+	*this = src;
 }
 
 Fixed&	Fixed::operator=(const Fixed &src)
