@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 19:22:47 by ezanotti          #+#    #+#             */
-/*   Updated: 2023/07/12 13:33:58 by elias            ###   ########.fr       */
+/*   Updated: 2023/07/12 14:25:36 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,24 +120,14 @@ Fixed& Fixed::operator--(void)
 
 Fixed Fixed::operator++(int value)
 {
-	Fixed	newFixed;
-
-	newFixed = *this;
-	if (!value)
-		value = 1;
-	newFixed.setRawBits(newFixed.getRawBits() + value);
-	return (newFixed);
+	this->setRawBits(this->getRawBits() + value);
+	return (*this);
 }
 
 Fixed Fixed::operator--(int value)
 {
-	Fixed	newFixed;
-
-	newFixed = *this;
-	if (!value)
-		value = 1;
-	newFixed.setRawBits(newFixed.getRawBits() - value);
-	return (newFixed);
+	this->setRawBits(this->getRawBits() - value);
+	return (*this);
 }
 
 // Methods
