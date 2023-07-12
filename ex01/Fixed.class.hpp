@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.class.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ezanotti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 19:00:31 by ezanotti          #+#    #+#             */
-/*   Updated: 2023/05/14 20:23:32 by ezanotti         ###   ########.fr       */
+/*   Updated: 2023/07/12 13:33:11 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class	Fixed
 
 	public:
 		Fixed();
-		Fixed(int intValue);
-		Fixed(float floatValue);
+		Fixed(const int intValue);
+		Fixed(const float floatValue);
 		Fixed(const Fixed &src);
 		Fixed &operator=(const Fixed &src);
 		~Fixed();

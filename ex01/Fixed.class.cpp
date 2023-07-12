@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.class.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ezanotti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 19:22:47 by ezanotti          #+#    #+#             */
-/*   Updated: 2023/05/14 20:29:58 by ezanotti         ###   ########.fr       */
+/*   Updated: 2023/07/12 13:33:29 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ Fixed::Fixed()
 	this->_fixedValue = 0;
 }
 
-Fixed::Fixed(int intValue)
+Fixed::Fixed(const int intValue)
 {
 	std::cout << "\e[32m[Int constructor called]\e[0m" << std::endl;
 	this->_fixedValue = intValue << this->_fixedPosition;
 }
 
-Fixed::Fixed(float floatValue)
+Fixed::Fixed(const float floatValue)
 {
 	std::cout << "\e[32m[Float constructor called]\e[0m" << std::endl;
 	this->_fixedValue = roundf(floatValue * (1 << this->_fixedPosition));
@@ -34,7 +34,7 @@ Fixed::Fixed(float floatValue)
 Fixed::Fixed(const Fixed &src)
 {
 	std::cout << "\e[32m[Copy constructor called]\e[0m" << std::endl;
-	this->setRawBits(src.getRawBits());
+	*this = src;
 }
 
 Fixed&	Fixed::operator=(const Fixed &src)
