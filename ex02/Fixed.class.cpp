@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 19:22:47 by ezanotti          #+#    #+#             */
-/*   Updated: 2023/07/12 14:26:22 by elias            ###   ########.fr       */
+/*   Updated: 2023/07/12 14:41:35 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,6 +160,20 @@ const Fixed&	Fixed::min(const Fixed &f1, const Fixed &f2)
 }
 
 const Fixed&	Fixed::max(const Fixed &f1, const Fixed &f2)
+{
+	if (f1.toFloat() > f2.toFloat())
+		return (f1);
+	return (f2);
+}
+
+Fixed&	Fixed::min(Fixed &f1, Fixed &f2)
+{
+	if (f1.toFloat() < f2.toFloat())
+		return (f1);
+	return (f2);
+}
+
+Fixed&	Fixed::max(Fixed &f1, Fixed &f2)
 {
 	if (f1.toFloat() > f2.toFloat())
 		return (f1);
