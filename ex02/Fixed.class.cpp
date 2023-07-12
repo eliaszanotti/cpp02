@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 19:22:47 by ezanotti          #+#    #+#             */
-/*   Updated: 2023/07/12 15:57:06 by elias            ###   ########.fr       */
+/*   Updated: 2023/07/12 16:20:00 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,13 +106,13 @@ Fixed Fixed::operator/(const Fixed &src)
 }
 
 // Increment operators
-Fixed& Fixed::operator++(void)
+Fixed Fixed::operator++(void)
 {
 	this->setRawBits(this->getRawBits() + 1);
 	return (*this);
 }
 
-Fixed& Fixed::operator--(void)
+Fixed Fixed::operator--(void)
 {
 	this->setRawBits(this->getRawBits() - 1);
 	return (*this);
@@ -125,7 +125,7 @@ Fixed	Fixed::operator++(int value)
 	newFixed = *this;
 	if (!value)
 		value = 1;
-	newFixed.setRawBits(newFixed.getRawBits() + value);
+	this->setRawBits(this->getRawBits() + value);
 	return (newFixed);
 }
 
@@ -136,7 +136,7 @@ Fixed	Fixed::operator--(int value)
 	newFixed = *this;
 	if (!value)
 		value = 1;
-	newFixed.setRawBits(newFixed.getRawBits() - value);
+	this->setRawBits(this->getRawBits() - value);
 	return (newFixed);
 }
 
